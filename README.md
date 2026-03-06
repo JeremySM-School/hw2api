@@ -1,6 +1,6 @@
 # Character API - Spring Boot Demo
 
-VIDEO: 
+VIDEO: https://www.loom.com/share/43e3e98b911e4490801b846e7ec44e5f
 
 A comprehensive RESTful API for managing character records, built with Spring Boot, Spring Data JPA, and PostgreSQL. This project demonstrates fundamental concepts for building APIs with Spring Boot.
 
