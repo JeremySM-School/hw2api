@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "characters")
-public class character {
+public class Character {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long characterid;
@@ -27,18 +27,18 @@ public class character {
     @Column(nullable = false)
     private String characterspecies;
 
-    public character() {
+    public Character() {
 
 }
 
-    public character(String charactername, String characterdescription, String characteruniverse, String characterspecies) {
+    public Character(String charactername, String characterdescription, String characteruniverse, String characterspecies) {
         this.charactername = charactername;
         this.characterdescription = characterdescription;
         this.characteruniverse = characteruniverse;
         this.characterspecies = characterspecies;
     }
 
-    public character(Long characterid, String charactername, String characterdescription, String characteruniverse, String characterspecies) {
+    public Character(Long characterid, String charactername, String characterdescription, String characteruniverse, String characterspecies) {
         this.characterid = characterid;
         this.charactername = charactername;
         this.characterdescription = characterdescription;

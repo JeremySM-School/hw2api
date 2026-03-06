@@ -26,7 +26,7 @@ public class CharacterService {
     }
 
     public List<Character> searchCharactersByName(String name) {
-        return characterRepository.findByCharactername(name);
+       return characterRepository.searchCharactersByName(name);
     }
 
     public List<Character> getCharactersBySpecies(String species) {
