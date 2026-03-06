@@ -1,6 +1,8 @@
-# Student CRUD API - Spring Boot Demo
+# Character API - Spring Boot Demo
 
-A comprehensive RESTful API for managing student records, built with Spring Boot, Spring Data JPA, and PostgreSQL. This project demonstrates fundamental concepts for building APIs with Spring Boot.
+VIDEO: 
+
+A comprehensive RESTful API for managing character records, built with Spring Boot, Spring Data JPA, and PostgreSQL. This project demonstrates fundamental concepts for building APIs with Spring Boot.
 
 ## Table of Contents
 
@@ -17,7 +19,7 @@ A comprehensive RESTful API for managing student records, built with Spring Boot
 
 ## What is This Project?
 
-This is a **CRUD API** (Create, Read, Update, Delete) that manages student records. It demonstrates:
+This is a **CRUD API** (Create, Read, Update, Delete) that manages character records. It demonstrates:
 
 - How to build a REST API with Spring Boot
 - How to connect to a PostgreSQL database using JPA
@@ -27,10 +29,10 @@ This is a **CRUD API** (Create, Read, Update, Delete) that manages student recor
 
 **CRUD** stands for:
 
-- **C**reate - Add new student records
-- **R**ead - Retrieve student records
-- **U**pdate - Modify existing student records
-- **D**elete - Remove student records
+- **C**reate - Add new character records
+- **R**ead - Retrieve character records
+- **U**pdate - Modify existing character records
+- **D**elete - Remove characters
 
 ---
 
@@ -265,10 +267,10 @@ Press `Ctrl+C` in your terminal to stop the running application. If using IDE GU
 ```
 src/main/java/com/csc340/crud_api/
 ├── CrudApiApplication.java          # Entry point of the application
-├── StudentApiController.java         # Handles HTTP requests
-├── StudentService.java               # Business logic layer
-├── StudentRepository.java            # Database access layer
-└── Student.java                      # Entity/Model class
+├── CharacterApiController.java         # Handles HTTP requests
+├── CharacterService.java               # Business logic layer
+├── CharacterRepository.java            # Database access layer
+└── Character.java                      # Entity/Model class
 
 src/main/resources/
 └── application.properties             # Configuration file
@@ -285,21 +287,21 @@ This project follows a three-tier architecture pattern:
                  │
 ┌────────────────▼────────────────────┐
 │    Controller Layer                 │
-│  (StudentApiController)             │
+│  (CharacterApiController)             │
 │  - Handles HTTP requests/responses  │
 │  - Maps URLs to methods(endpoints)  │
 └────────────────┬────────────────────┘
                  │
 ┌────────────────▼────────────────────┐
 │    Service Layer                    │
-│  (StudentService)                   │
+│  (CharacterService)                   │
 │  - Contains business logic          │
 │  - Processes data from repositories │
 └────────────────┬────────────────────┘
                  │
 ┌────────────────▼────────────────────┐
 │    Repository Layer                 │
-│  (StudentRepository)                │
+│  (CharacterRepository)                │
 │  - Communicates with database       │
 │  - Performs CRUD operations         │
 └────────────────┬────────────────────┘
@@ -321,27 +323,27 @@ This project follows a three-tier architecture pattern:
 
 ## API Endpoints
 
-All endpoints use the base URL: `http://localhost:8080/api/students`
+All endpoints use the base URL: `http://localhost:8080/api/Characters`
 
-### 1. Get All Students
+### 1. Get All Characters
 
 ```http
-GET /api/students/
+GET /api/Characters/
 ```
 
-**Description**: Retrieve a list of all students in the database.
+**Description**: Retrieve a list of all Characters in the database.
 
 **Parameters**: None
 
 **Response**:
 
 - **Status Code**: `200 OK`
-- **Body**: Array of Student objects
+- **Body**: Array of Character objects
 
 #### Example Request
 
 ```bash
-curl http://localhost:8080/api/students/
+curl http://localhost:8080/api/Characters/
 ```
 
 #### Example Response (Status: 200 OK)
@@ -349,14 +351,14 @@ curl http://localhost:8080/api/students/
 ```json
 [
   {
-    "studentId": 1,
+    "CharacterId": 1,
     "name": "Alice Johnson",
     "email": "alice@university.edu",
     "major": "Computer Science",
     "gpa": 3.8
   },
   {
-    "studentId": 2,
+    "CharacterId": 2,
     "name": "Bob Smith",
     "email": "bob@university.edu",
     "major": "Mathematics",
@@ -367,38 +369,38 @@ curl http://localhost:8080/api/students/
 
 ---
 
-### 2. Get Student by ID
+### 2. Get Character by ID
 
 ```http
-GET /api/students/{id}
+GET /api/Characters/{id}
 ```
 
-**Description**: Retrieve a single student by their ID.
+**Description**: Retrieve a single Character by their ID.
 
 **Path Parameters**:
 
-- `id` (Long, required): The unique identifier of the student
+- `id` (Long, required): The unique identifier of the Character
 
 **Response**:
 
 - **Status Code**: `200 OK` (if found) or `404 Not Found` (if not found)
-- **Body**: Student object
+- **Body**: Character object
 
 #### Example Request
 
 ```bash
-curl http://localhost:8080/api/students/1
+curl http://localhost:8080/api/Characters/1
 ```
 
 #### Example Response (Status: 200 OK)
 
 ```json
 {
-  "studentId": 1,
-  "name": "Alice Johnson",
-  "email": "alice@university.edu",
-  "major": "Computer Science",
-  "gpa": 3.8
+  "characterdescription": "Heroic plumber saves princesses way too much and eats tons of mushes"
+  "characterid": 1,
+  "charactername": "Mario",
+  "characterspecies": "human",
+  "characteruniverse": "Super Mario Brothers"
 }
 ```
 
@@ -410,36 +412,38 @@ curl http://localhost:8080/api/students/1
 
 ---
 
-### 3. Create a New Student
+### 3. Create a New Character
 
 ```http
-POST /api/students/
+POST /api/Characters/
 ```
 
-**Description**: Create a new student record in the database.
+**Description**: Create a new Character record in the database.
 
-**Request Body**: Student object with the following fields:
+**Request Body**: Character object with the following fields:
 
-- `name` (String, required): Student's full name
-- `email` (String, required, unique): Student's email address
-- `major` (String, optional): Student's major
-- `gpa` (Double, optional): Student's GPA
+- `characterdescription` (String, required): Character's description
+- `characterid` (String, required, unique): Character's id
+- `charactername` (String, required): Character's full or partial name
+- `characterspecies` (String, required): Character's species
+- `characteruniverse` (String, required): Character's place of origin
 
 **Response**:
 
 - **Status Code**: `200 OK` (if created successfully)
-- **Body**: Created Student object with assigned `studentId`
+- **Body**: Created Character object with assigned `CharacterId`
 
 #### Example Request
 
 ```bash
-curl -X POST http://localhost:8080/api/students/ \
+curl -X POST http://localhost:8080/api/Characters/ \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "Charlie Brown",
-    "email": "charlie@university.edu",
-    "major": "Physics",
-    "gpa": 3.7
+    "characterdescription": "The best torterra",
+    "characterid": "1",
+    "charactername": "Turt",
+    "characterspecies": Tortoise, Torterra
+    "characteruniverse": Pokemon
   }'
 ```
 
@@ -447,88 +451,45 @@ curl -X POST http://localhost:8080/api/students/ \
 
 ```json
 {
-  "studentId": 3,
-  "name": "Charlie Brown",
-  "email": "charlie@university.edu",
-  "major": "Physics",
-  "gpa": 3.7
-}
+    "characterdescription": "The best torterra",
+    "characterid": "1",
+    "charactername": "Turt",
+    "characterspecies": Tortoise, Torterra
+    "characteruniverse": Pokemon
+  }'
 ```
 
 ---
 
-### 4. Get Students by Major
+### 4. Get Characters by species
 
 ```http
-GET /api/students/major/{major}
+GET /api/Characters/species/{species}
 ```
 
-**Description**: Retrieve all students with a specific major.
+**Description**: Retrieve all Characters with a specific species or universe.
 
 **Path Parameters**:
 
-- `major` (String, required): The major to filter by (e.g., "Computer Science")
+- `species or universe` (String, required): The species or universe to filter by (e.g., "SMB, or human")
 
 **Response**:
 
 - **Status Code**: `200 OK`
-- **Body**: Array of Student objects
+- **Body**: Array of Character objects
 
 ---
 
-### 5. Get Honors Students
-
-```http
-GET /api/students/honors/{gpa}
-```
-
-**Description**: Retrieve students with a GPA greater than or equal to the specified value.
-
-**Path Parameters**:
-
-- `gpa` (Double, required): Minimum GPA for honors (e.g., 3.5)
-
-**Response**:
-
-- **Status Code**: `200 OK`
-- **Body**: Array of Student objects meeting the GPA requirement
-
-#### Example Request
-
-```bash
-curl http://localhost:8080/api/students/honors/3.7
-```
-
-#### Example Response (Status: 200 OK)
-
-```json
-[
-  {
-    "studentId": 1,
-    "name": "Alice Johnson",
-    "email": "alice@university.edu",
-    "major": "Computer Science",
-    "gpa": 3.8
-  },
-  {
-    "studentId": 3,
-    "name": "Charlie Brown",
-    "email": "charlie@university.edu",
-    "major": "Physics",
-    "gpa": 3.7
-  }
-]
-```
 
 ---
 
-### 6. Search Students by Name
+### 6. Search Characters by Name
 
 ```http
-GET /api/students/search?name={name}
+GET /api/Characters/search?name={name}
 ```
 
-**Description**: Search for students by name (partial match supported) or retrieve all students if no name is provided.
+**Description**: Search for Characters by name (partial match supported) or retrieve all Characters if no name is provided.
 
 **Query Parameters**:
 
@@ -537,12 +498,12 @@ GET /api/students/search?name={name}
 **Response**:
 
 - **Status Code**: `200 OK`
-- **Body**: Array of matched Student objects
+- **Body**: Array of matched Character objects
 
 #### Example Request
 
 ```bash
-curl "http://localhost:8080/api/students/search?name=Alice"
+curl "http://localhost:8080/api/Characters/search?name=Alice"
 ```
 
 #### Example Response (Status: 200 OK)
@@ -550,7 +511,7 @@ curl "http://localhost:8080/api/students/search?name=Alice"
 ```json
 [
   {
-    "studentId": 1,
+    "CharacterId": 1,
     "name": "Alice Johnson",
     "email": "alice@university.edu",
     "major": "Computer Science",
@@ -561,59 +522,59 @@ curl "http://localhost:8080/api/students/search?name=Alice"
 
 ---
 
-### 7. Get Student by Email
+### 7. Get Character by Universe
 
 ```http
-GET /api/students/email/{email}
+GET /api/Characters/universe/{universe}
 ```
 
-**Description**: Retrieve a student by their email address.
+**Description**: Retrieve a Character by their universe.
 
 **Path Parameters**:
 
-- `email` (String, required): The student's email address
+- `universe` (String, required): The Character's universe
 
 **Response**:
 
 - **Status Code**: `200 OK` (if found) or `404 Not Found` (if not found)
-- **Body**: Student object
+- **Body**: Character object
 
 ---
 
-### 8. Update a Student
+### 8. Update a Character
 
 ```http
-PUT /api/students/{id}
+PUT /api/Characters/{id}
 ```
 
-**Description**: Update an existing student's information.
+**Description**: Update an existing Character's information.
 
 **Path Parameters**:
 
-- `id` (Long, required): The ID of the student to update
+- `id` (Long, required): The ID of the Character to update
 
-**Request Body**: Student object with fields to update:
+**Request Body**: Character object with fields to update:
 
-- `name` (String): Updated name
-- `email` (String): Updated email
-- `major` (String): Updated major
-- `gpa` (Double): Updated GPA
+- `charactername` (String): Updated name
+- `species` (String): Updated species
+- `universe` (String): Updated universe
+- `description` (Double): Updated description
 
 **Response**:
 
-- **Status Code**: `200 OK` (if updated successfully) or `404 Not Found` (if student not found)
-- **Body**: Updated Student object
+- **Status Code**: `200 OK` (if updated successfully) or `404 Not Found` (if Character not found)
+- **Body**: Updated Character object
 
 #### Example Request
 
 ```bash
-curl -X PUT http://localhost:8080/api/students/1 \
+curl -X PUT http://localhost:8080/api/Characters/1 \
   -H "Content-Type: application/json" \
   -d '{
-    "name": "Alice Johnson",
-    "email": "alice.johnson@university.edu",
-    "major": "Computer Science",
-    "gpa": 3.9
+    "name": "toppy",
+    "species": "egg",
+    "universe": "normal earth",
+    "descrption": video game master, plays literally anything from souls like to farm games, hes very weird in terms of his likes kinda jack of all trades
   }'
 ```
 
@@ -621,27 +582,27 @@ curl -X PUT http://localhost:8080/api/students/1 \
 
 ```json
 {
-  "studentId": 1,
-  "name": "Alice Johnson",
-  "email": "alice.johnson@university.edu",
-  "major": "Computer Science",
-  "gpa": 3.9
-}
+    "characterid" = 2
+    "name": "toppy",
+    "species": "egg",
+    "universe": "normal earth",
+    "descrption": video game master, plays literally anything from souls like to farm games, hes very weird in terms of his likes kinda jack of all trades
+  }'
 ```
 
 ---
 
-### 9. Delete a Student
+### 9. Delete a Character
 
 ```http
-DELETE /api/students/{id}
+DELETE /api/Characters/{id}
 ```
 
-**Description**: Delete an existing student record from the database.
+**Description**: Delete an existing Character record from the database.
 
 **Path Parameters**:
 
-- `id` (Long, required): The ID of the student to delete
+- `id` (Long, required): The ID of the Character to delete
 
 **Response**:
 
@@ -651,7 +612,7 @@ DELETE /api/students/{id}
 #### Example Request
 
 ```bash
-curl -X DELETE http://localhost:8080/api/students/1
+curl -X DELETE http://localhost:8080/api/Characters/1
 ```
 
 #### Example Response (Status: 204 No Content)
@@ -677,12 +638,12 @@ Spring Boot is a framework that simplifies building production-ready Spring appl
 
 ```java
 @Controller
-@RequestMapping("/api/students")
-public class StudentApiController { }
+@RequestMapping("/api/Characters")
+public class CharacterApiController { }
 ```
 
 - `@Controller`: Tells Spring this class handles HTTP requests
-- `@RequestMapping("/api/students")`: All endpoints in this class start with `/api/students`
+- `@RequestMapping("/api/Characters")`: All endpoints in this class start with `/api/Characters`
 
 ### HTTP Mapping Annotations
 
@@ -695,11 +656,11 @@ public class StudentApiController { }
 
 ```java
 @Service
-public class StudentService {
-  private final StudentRepository studentRepository;
+public class CharacterService {
+  private final CharacterRepository CharacterRepository;
 
-  public StudentService(StudentRepository studentRepository) {
-    this.studentRepository = studentRepository;
+  public CharacterService(CharacterRepository CharacterRepository) {
+    this.CharacterRepository = CharacterRepository;
   }
 }
 ```
@@ -710,40 +671,40 @@ public class StudentService {
 ### Spring Data JPA Repository
 
 ```java
-public interface StudentRepository extends JpaRepository<Student, Long> {
-  List<Student> findByMajor(String major);
-  Student findByEmail(String email);
+public interface CharacterRepository extends JpaRepository<Character, Long> {
+  List<Character> findByMajor(String major);
+  Character findByEmail(String email);
 }
 ```
 
-- `JpaRepository<Student, Long>`: Provides CRUD methods automatically
+- `JpaRepository<Character, Long>`: Provides CRUD methods automatically
 - Spring automatically generates implementations for custom finder methods
-- `findByMajor` generates a query like: `SELECT * FROM students WHERE major = ?`
+- `findByMajor` generates a query like: `SELECT * FROM Characters WHERE major = ?`
 
 ### @Entity and JPA Annotations
 
 ```java
 @Entity
-@Table(name = "students")
-public class Student {
+@Table(name = "Characters")
+public class Character {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  public Long studentId;
+  public Long CharacterId;
 }
 ```
 
 - `@Entity`: Marks this class as a database table
-- `@Table(name = "students")`: Specifies the table name
+- `@Table(name = "Characters")`: Specifies the table name
 - `@Id`: Marks the primary key field
 - `@GeneratedValue`: Auto-generates IDs (database handles increment)
 
 ### ResponseEntity
 
 ```java
-public ResponseEntity<Student> getStudentById(@PathVariable Long id) {
-  Student student = studentService.getStudentById(id);
-  if (student != null) {
-    return ResponseEntity.ok(student);  // Status 200
+public ResponseEntity<Character> getCharacterById(@PathVariable Long id) {
+  Character Character = CharacterService.getCharacterById(id);
+  if (Character != null) {
+    return ResponseEntity.ok(Character);  // Status 200
   } else {
     return ResponseEntity.notFound().build();  // Status 404
   }
@@ -760,27 +721,27 @@ public ResponseEntity<Student> getStudentById(@PathVariable Long id) {
 
 ## Database Schema
 
-The application uses a single table to store student data:
+The application uses a single table to store Character data:
 
-### STUDENTS Table
+### CharacterS Table
 
-| Column       | Type             | Constraints      | Description                         |
-| ------------ | ---------------- | ---------------- | ----------------------------------- |
-| `student_id` | SERIAL           | PRIMARY KEY      | Auto-incrementing unique identifier |
-| `name`       | VARCHAR(255)     | NOT NULL         | Student's full name                 |
-| `email`      | VARCHAR(255)     | NOT NULL, UNIQUE | Student's email (must be unique)    |
-| `major`      | VARCHAR(255)     | Can be NULL      | Student's major (optional)          |
-| `gpa`        | DOUBLE PRECISION | Can be NULL      | Student's GPA (optional)            |
+| Column       | Type             | Constraints      | Description                                        |
+| ------------    | ---------------- | ---------------- | -----------------------------------             |
+| `Character_id`    | SERIAL           | PRIMARY KEY             | Auto-incrementing unique identifier    |
+| `charactername`       | VARCHAR(255)     | NOT NULL            | Character's full name                  |
+| `characterspecies`      | VARCHAR(255)     | NOT NULL, UNIQUE  | Character's species (must be unique)   |
+| `characteruniverse`      | VARCHAR(255)     | Can be NULL      | Character's universe                   |
+| `characterdescription`        | DOUBLE PRECISION | Can be NULL | Character's descrption                 |
 
 ### SQL (for reference)
 
 ```sql
-CREATE TABLE students (
-  student_id SERIAL PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  email VARCHAR(255) NOT NULL UNIQUE,
-  major VARCHAR(255),
-  gpa DOUBLE PRECISION
+CREATE TABLE Characters (
+  Character_id SERIAL PRIMARY KEY,
+  charactername VARCHAR(255) NOT NULL,
+  characteruniverse VARCHAR(255) NOT NULL UNIQUE,
+  characterspecies VARCHAR(255), NOT NULL UNIQUE
+  characterdescription  VARCHAR(255)
 );
 ```
 
@@ -794,7 +755,7 @@ CREATE TABLE students (
 
 1. Create a new request
 2. Select HTTP method (GET, POST, PUT, DELETE)
-3. Enter URL (e.g., http://localhost:8080/api/students/)
+3. Enter URL (e.g., http://localhost:8080/api/Characters/)
 4. If POST/PUT, go to "Body" tab → select "raw" and "JSON"
 5. Enter JSON data and click "Send"
 
@@ -810,7 +771,7 @@ CREATE TABLE students (
 server.port=8081
 ```
 
-Then access the API at `http://localhost:8081/api/students/`
+Then access the API at `http://localhost:8081/api/Characters/`
 
 ### Issue: "Connection refused" when accessing database
 
@@ -826,7 +787,7 @@ Then access the API at `http://localhost:8081/api/students/`
 
 - Verify the endpoint URL is correct
 - Make sure the application is running (use `mvnw.cmd spring-boot:run` on Windows or `./mvnw spring-boot:run` on Mac/Linux)
-- Check the base path is `/api/students`
+- Check the base path is `/api/Characters`
 
 ### Issue: JSON parsing errors in POST/PUT requests
 
