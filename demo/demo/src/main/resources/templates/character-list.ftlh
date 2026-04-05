@@ -38,89 +38,26 @@
 <div class="col-md-1 ms-3"></div>
 
 <#list characterList as character>
+    <div class="card" style="width: 18rem;">
+      <img src="images/star1.jpg" class="card-img-top" alt="Character Image">
+      
+      <div class="card-body">
+        <h5 class="card-title">${character.charactername}</h5>
+        <p class="card-text">                                     
+            <strong>Universe:</strong> ${character.characteruniverse} 
+            <br><strong>Species:</strong> ${character.characterspecies}
+            <br><strong>Description:</strong> ${character.characterdescription}
+        </p>
+        
+        
+        <a href="/characters/${character.characterid}" class="btn btn-primary">Bio Page</a>
+        
 
-<div class="card" style="width: 18rem;">
-  <img src="images/star1.jpg" class="card-img-top">
-  <div class="card-body">
-    <h5 class="card-title">${character.name}</h5>
-    <p class="card-text">                                                          
-        Universe: ${character.universe} 
-        <br>Role: ${character.role} 
-        <br>Power level: ${character.powerLevel}
-        <br>Species: ${character.species}</p></p>
-    <a href="about.html" class="btn btn-primary">Bio Page</a>
-  </div>
-</div>
-
-</#list>
-
-<div class="card" style="width: 18rem;">
-  <img src="images/star1.jpg" class="card-img-top">
-  <div class="card-body">
-    <h5 class="card-title">Star Butterfly</h5>
-    <p class="card-text">                                                          
-        Universe: Mewni 
-        <br>Role: Princess 
-        <br>Power level: Can play with the fabric of magic.
-        <br>Species: Mewman</p></p>
-    <a href="about.html" class="btn btn-primary">Bio Page</a>
-  </div>
-</div>
-
-<div class="card" style="width: 18rem;">
-    <img src="images/steven.png" class="card-img-top">
-    <div class="card-body">
-      <h5 class="card-title">Steven Universe</h5>
-      <p class="card-text">
-        Universe: None/Normal Earth 
-        <br>Role: Rebel Leader 
-        <br>Power level: Summons defensive weapons from his gem on my stomach.
-        <br>Species: Gem/Human </p></p>
-      <a href="about.html" class="btn btn-primary">Bio Page</a>
+        <a href="/characters/delete/${character.characterid}" class="btn btn-danger btn-sm mt-2">Delete</a>
+      </div>
     </div>
-  </div>
+  </#list>
 
-<div class="card" style="width: 18rem;">
-    <img src="images/jake.jpg" class="card-img-top">
-    <div class="card-body">
-      <h5 class="card-title">Jake the Dog (best boy)</h5>
-      <p class="card-text">
-        Universe: OOO
-        <br>Role: Champion/Big Brother
-        <br>Power level: Alien stretchy powers, and S-tier dancing.
-        <br>Species: Alien/Dog </p></p>
-      <a href="about.html" class="btn btn-primary">Bio Page</a>
-    </div>
-  </div>
-
-  <div class="card" style="width: 18rem;">
-    <img src="images/danny.jpg" class="card-img-top">
-    <div class="card-body">
-      <h5 class="card-title">Danny Phantom</h5>
-      <p class="card-text">
-        Universe: None/Normal Earth 
-        <br>Role: Ghost Security 
-        <br>Power level: Intangability, high strength, frost powers, lasers, cloning.
-        <br>Species: Ghost/Human </p></p>
-      <a href="about.html" class="btn btn-primary">Bio Page</a>
-    </div>
-  </div>
-
-  <div class="card" style="width: 18rem;">
-    <img src="images/actualgoat.jpg" class="card-img-top">
-    <div class="card-body">
-      <h5 class="card-title">TURT!</h5>
-      <p class="card-text">
-        Universe: Pokemon
-        <br>Role: Loveable Island
-        <br>Power level: Causes earthquakes, best boy, defensive god with absolutely no weaknesses (whats ice?).
-        <br>Species: Best Tortoise </p></p>
-     <a href="about.html" class="btn btn-primary">Bio Page</a>
-    </div>
-  </div>
-
-
-<p> </p>
 
 
 </body>
