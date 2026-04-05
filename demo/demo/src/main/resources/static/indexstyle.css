@@ -1,0 +1,35 @@
+img {
+border: 5px solid purple;
+
+}
+
+body{
+    background-image: url(images/hwbg.jpg);
+}
+
+p {
+  font-family: "Times New Roman", Times, serif;
+  font-size: larger;
+  font-weight: 500;
+  color: black
+}
+
+br{
+    font-family: "Times New Roman", Times, serif;
+  font-size: larger;
+  font-weight: 500;
+  color: black
+}
+
+
+.details-container, .card {
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid purple; 
+}
+
+.navbar {
+    background-color: rgba(248, 249, 250, 0.9);
+    border-bottom: 3px solid purple;
+}

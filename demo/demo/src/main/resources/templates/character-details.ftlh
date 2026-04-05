@@ -1,65 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="/detail.css">
-
-
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>${character.charactername} | Profile</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/indexstyle.css">
 </head>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Character Cards</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/characters/all">Character Cards</a>
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-        <a class="nav-link" href="/details.html">Character Details</a>
-        <a class="nav-link" href="/about.html">About</a>
-        <a class="nav-link" href="/new-character-form.html">Add Cartoon</a>
+        <a class="nav-link" href="/characters/all">Home</a>
+        <a class="nav-link" href="/characters/about">About</a>
+        <a class="nav-link" href="/characters/add">Add Cartoon</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <img src="/images/star1.jpg" class="img-fluid rounded shadow-lg" alt="Character Image">
+      </div>
+
+      <div class="col-md-8">
+        <h1 class="display-4">${character.charactername}</h1>
+        <p class="lead text-primary">${character.characterspecies} • ${character.characteruniverse}</p>
+        <hr>
+
+        <div class="description-section">
+          <h4>Character Bio</h4>
+          <p style="line-height: 1.8; font-size: 1.1rem;">
+            ${character.characterdescription}
+          </p>
+        </div>
+
+        <div class="mt-5">
+          <a href="/characters/all" class="btn btn-outline-secondary">← Back to Gallery</a>
+        </div>
       </div>
     </div>
   </div>
-</nav>
-<nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
-    <form class="d-flex" role="search">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-      <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
 
-<body>
-    <div class="card">
-  <div class="card-header">
-    Guest of Honor
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">${character.name}</h5>
-    <p class="card-text">This about page will be all about the best dog ( no questions ) in cartoon history and why hes the best. Its mostly going to be a page going in more depth to his character as well.</p>
-    <a href="/index.html" class="btn btn-primary">Jake's small BIO</a>
-  </div>
-  
-</div>
-
-<img src="/images/mygoat.avif" class="card-img-top">
-
-
-<p>
-    At the beginning Jake's character had a start out lazy, kinda surfer dude personality he most cared about eating, chilling out and if not hanging out with his brother Finn or with his Girlfriend Rainicorn he most spent his time sitting in his treehouse playing with best robot BMO, he still kept that same personality tho it did go through some changes as Finn and Jake became closer as the seasons went on, 
-    they kinda ditched the best friend idea for a more brotherly bond, they saw each other more and more as brothers then besties, even tho they were brothers from the beginning nothing other than a couple flashbacks that most people would see as a joke would actually tell viewers they were brothers. Technically, they're step-brothers since Finn's parents were obviously human, and Jake's were his father Joshua and his technical mother, 
-    a blue alien from the cosmos who infected Josh with his DNA to make jake, tho he is part alien, Jake roughly inherited his father's personality. His stretchy powers have their limits; he can't stretch forever. His personality, hyped up by others, causes him to push himself way beyond his limits, which leads to some near-death scenarios. At the end of the day, Jake always supported and enjoyed his time with Finn. It was never covered how Jake would die since he was still a dog and Finn was still human, alien or not,
-     his life-span was going to be shorter. His death was never covered other than a couple of hints here and there as to when he died, how he died, and I personally think it should remain a mystery. 
-
-</p>
-
-</div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
 
+</html>
