@@ -22,7 +22,7 @@ public class CharacterUIController {
         return "character-list"; 
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/details/{id}")
     public String getCharacterById(@PathVariable Long id, Model model) {
         Character character = characterService.getCharacterById(id);
         if (character != null) {

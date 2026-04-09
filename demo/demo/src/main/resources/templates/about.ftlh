@@ -36,20 +36,36 @@
   </div>
 </nav>
 
-<ul class="list-group">
-  <li class="list-group-item">About this page: Why did I make it like this?</li>
-</ul>
 
-<ol class="list-group list-group-numbered">
-  <li class="list-group-item">Cartoon were a huge part of my life.</li>
-  <li class="list-group-item">I honestly love watching them not only for their story and characters, its just the thought of how long and how much effort they put into these animations because I know back then and even now they draw it frame by frame and it makes me happy thinking about how much fun the actors, writters and animators enjoy making these cartoons.</li>
-  <li class="list-group-item">I designed it to have a sort of nostalgia feel, I'm unsure it would work as this is a very novice built site with using bootstrap but it actually made me go back find some of these cartoons and think about rewatching them again to learn and remember them again. I would give alot to erase my memory of these shows and watch them again blind.</li>
-  <li class="list-group-item">It was made with love, I know ill remember this when I begin making games and sites from here, and hopefully working with more people to make more impressive sites. I hope to meet people with the same passion as I do for games and cartoons to help make more advanced sites and maybe games with, the team makes the creation experience after all. I wanted
-     to try to make something decent with some of the things in bootstrap since effort is something I hear is hard to find so I wanted at least try my best to make it into something. I really enjoyed making this site even if its still a prototype and can't wait to make more this semester.</li>
-<img src="/images/IMG_2057.png" alt="Description of the image" width="220" height="300">
+<div class="container">
+    <div class="glass-container">
+        
+        <h1 class="about-header">About This Project</h1>
+        
+        <p>About this page: Why did I make it like this?</p>
 
-</ol>
+        <ol class="list-group list-group-numbered">
+            <li class="list-group-item clean-list-item">
+                <p>Cartoons were a huge part of my life.</p>
+            </li>
+            <li class="list-group-item clean-list-item">
+                <p>I honestly love watching them not only for their story and characters, its just the thought of how long and how much effort they put into these animations because I know back then and even now they draw it frame by frame and it makes me happy thinking about how much fun the actors, writters and animators enjoy making these cartoons.</p>
+            </li>
+            <li class="list-group-item clean-list-item">
+                <p>I designed it to have a sort of nostalgia feel, I'm unsure it would work as this is a very novice built site with using bootstrap but it actually made me go back find some of these cartoons and think about rewatching them again to learn and remember them again. I would give alot to erase my memory of these shows and watch them again blind.</p>
+            </li>
+            <li class="list-group-item clean-list-item">
+                <p>It was made with love, I know ill remember this when I begin making games and sites from here, and hopefully working with more people to make more impressive sites. I hope to meet people with the same passion as I do for games and cartoons to help make more advanced sites and maybe games with, the team makes the creation experience after all. I wanted
+     to try to make something decent with some of the things in bootstrap since effort is something I hear is hard to find so I wanted at least try my best to make it into something. I really enjoyed making this site even if its still a prototype and can't wait to make more this semester.</p>
+            </li>
+        </ol>
 
+        <div class="text-center mt-5">
+            <img src="/images/IMG_2057.png" alt="Inspiration Image" width="220" height="300">
+        </div>
+
+    </div>
+</div>
 
 
 

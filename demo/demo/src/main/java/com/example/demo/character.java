@@ -13,20 +13,20 @@ import jakarta.persistence.Table;
 public class Character {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "characterid") 
     private Long characterid;
 
-    @Column(nullable = false)
+    @Column(name = "charactername", nullable = false)
     private String charactername;
 
-    @Column(nullable = false)
+    @Column(name = "characterdescription", nullable = false)
     private String characterdescription;
 
-    @Column(nullable = false)
+    @Column(name = "characteruniverse", nullable = false)
     private String characteruniverse;
 
-    @Column(nullable = false)
+    @Column(name = "characterspecies", nullable = false)
     private String characterspecies;
-
     public Character() {
 
 }
