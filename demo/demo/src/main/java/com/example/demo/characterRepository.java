@@ -25,5 +25,7 @@ public interface CharacterRepository extends JpaRepository<Character, Long> {
     @Query("SELECT c FROM Character c WHERE LOWER(c.characterspecies) LIKE LOWER(CONCAT('%', :species, '%'))")
     List<Character> searchCharactersBySpecies(@Param("species") String species);
 
+    
+
 
 }

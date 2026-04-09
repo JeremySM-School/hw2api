@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="/indexstyle.css">
   <title>Character Cards</title>
 </head>
+
 <body>
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -28,7 +30,8 @@
   <nav class="navbar bg-body-tertiary">
     <div class="container-fluid">
       <form class="d-flex" role="search" action="/characters/search" method="GET">
-        <input class="form-control me-2" name="query" type="search" placeholder="Search universe..." aria-label="Search" />
+        <input class="form-control me-2" name="query" type="search" placeholder="Search character..."
+          aria-label="Search" />
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
@@ -38,7 +41,8 @@
     <div class="d-flex flex-wrap gap-5 justify-content-center">
       <#list characterList as character>
         <div class="card" style="width: 18rem;">
-          <img src="/images/star1.jpg" class="card-img-top" alt="${character.charactername}">
+          <img src="${character.characterimageurl!'/images/default-avatar.jpg'}" class="card-img-top"
+            alt="${character.charactername}">
           <div class="card-body">
             <h5 class="card-title">${character.charactername}</h5>
             <p class="card-text">
@@ -47,9 +51,9 @@
               <strong>Description:</strong> ${character.characterdescription}
             </p>
             <div class="d-grid gap-2">
-                <a href="/characters/details/${character.characterid}" class="btn btn-primary">Bio Page</a>
-                <a href="/characters/delete/${character.characterid}" class="btn btn-danger btn-sm" 
-                   onclick="return confirm('Are you sure you want to delete ${character.charactername}?')">Delete</a>
+              <a href="/characters/details/${character.characterid}" class="btn btn-primary">Bio Page</a>
+              <a href="/characters/delete/${character.characterid}" class="btn btn-danger btn-sm"
+                onclick="return confirm('Are you sure you want to delete ${character.charactername}?')">Delete</a>
             </div>
           </div>
         </div>
@@ -58,4 +62,5 @@
   </div>
 
 </body>
+
 </html>

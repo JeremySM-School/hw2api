@@ -25,6 +25,10 @@ public class CharacterService {
         return characterRepository.save(character);
     }
 
+    public void addCharacter(Character character) {
+    characterRepository.save(character);
+}
+
     public List<Character> searchCharactersByName(String name) {
        return characterRepository.searchCharactersByName(name);
     }

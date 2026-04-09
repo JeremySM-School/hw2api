@@ -16,6 +16,7 @@ public class Character {
     @Column(name = "characterid") 
     private Long characterid;
 
+
     @Column(name = "charactername", nullable = false)
     private String charactername;
 
@@ -27,6 +28,9 @@ public class Character {
 
     @Column(name = "characterspecies", nullable = false)
     private String characterspecies;
+
+    @Column(name = "characterimageurl", nullable = true)
+    private String characterimageurl;
     public Character() {
 
 }
@@ -36,6 +40,7 @@ public class Character {
         this.characterdescription = characterdescription;
         this.characteruniverse = characteruniverse;
         this.characterspecies = characterspecies;
+        this.characterimageurl = characterimageurl;
     }
 
     public Character(Long characterid, String charactername, String characterdescription, String characteruniverse, String characterspecies) {
@@ -85,4 +90,12 @@ public class Character {
     public void setCharacterspecies(String characterspecies) {
         this.characterspecies = characterspecies;
     }
+
+    public String getCharacterimageurl() {
+    return characterimageurl;
+}
+
+public void setCharacterimageurl(String characterimageurl) {
+    this.characterimageurl = characterimageurl;
+}
 }
