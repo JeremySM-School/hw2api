@@ -60,4 +60,10 @@ public String saveCharacter(Character character) {
     return "redirect:/characters/all";
 }
 
+@GetMapping("/delete/{id}")
+public String deleteCharacter(@PathVariable Long id) {
+    characterService.deleteCharacter(id);
+    return "redirect:/characters/all";
+}
+
 }
